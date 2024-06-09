@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editior</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c3adf62393.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <label><i class="fa-brands fa-html5"></i>HTML</label>
+            <textarea id="html" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-css3"></i>CSS</label>
+            <textarea id="css" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-js"></i>JavaScript</label>
+            <textarea id="js" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class="fa-regular fa-circle-play"></i> Output</label>
+            <iframe id="output">
+
+            </iframe>
+        </div>
+    </div>
+    <script>
+        function run(){
+            let html=document.getElementById("html").value;
+            let css=document.getElementById("css").value;
+            let js=document.getElementById("js").value;
+            let output=document.getElementById("output");
+            output.contentDocument.body.innerHTML=html+"<style>"+css+"</style>";
+            output.contentWindow.eval(js);
+
+        }
+    </script>
+    
+    
+</body>
+</html>
